@@ -28,6 +28,8 @@ public class Contact {
         this.setState(state);
         this.setZip(zip);
     }
+    
+    public Contact(){}
 
     public String getFirstName() {
         return firstName;

@@ -5,6 +5,7 @@
  */
 
 package contacts;
+import java.util.*;
 
 /**
  *
@@ -17,6 +18,9 @@ public class ContactsMain {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        ContactReader cr = new ContactReader();
+        List<Contact> myContacts = new ArrayList(4);
+        
     }
     
 }
