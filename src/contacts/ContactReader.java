@@ -17,12 +17,12 @@ public class ContactReader {
     
     public void readContacts(List<Contact> l) {
         BufferedReader in = null;
-        String fname;
-        String lname;
-        String street;
-        String city;
-        String state;
-        String zip;
+        String fname = "";
+        String lname = "";
+        String street = "";
+        String city = "";
+        String state = "";
+        String zip = "";
         int lineCt = 0;
         int listCt = 0;
         //read and output all to console
@@ -51,12 +51,18 @@ public class ContactReader {
                        zip = line;
                        break;
                };
-               System.out.println(line);
+               //System.out.println(line);
                line = in.readLine();  // strips out any carriage return chars
                lineCt++; 
                
                //add information to contact list
+               
             }
+           for(int i = 0; i < l.size(); i++){
+                   Contact temp = l.get(i);
+                   temp = new Contact(fname, lname, street, city, state, zip);
+                   l.set(i, temp);
+           }
             
         } catch(IOException ioe) {
             System.out.println("Houston, we have a problem! reading this file");
@@ -67,5 +73,11 @@ public class ContactReader {
                 
             }
         }
+    }
+    
+    public void printContacts(List<Contact> l){
+        for(int i = 0; i < l.size(); i++){
+               System.out.println(l.get(i).toString());
+           }
     }
 }

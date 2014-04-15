@@ -122,5 +122,10 @@ public class Contact {
         return true;
     }
     
+    @Override
+    public String toString(){
+        return (firstName + " " + lastName + "\n" + street + "\n" + city + ", " + state + " " + zip);
+    }
+    
     
 }

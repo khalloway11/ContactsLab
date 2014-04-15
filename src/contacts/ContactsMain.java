@@ -20,6 +20,8 @@ public class ContactsMain {
         // TODO code application logic here
         ContactReader cr = new ContactReader();
         List<Contact> myContacts = new ArrayList(4);
+        cr.readContacts(myContacts);
+        cr.printContacts(myContacts);
         
     }
     
