@@ -15,7 +15,7 @@ import java.util.*;
 public class ContactReader {
     File data = new File("src" + File.separatorChar + "records.txt");
     
-    public void readContacts(List<Contact> l) {
+    public List<Contact> readContacts(ArrayList<Contact> l) {
         BufferedReader in = null;
         String fname = "";
         String lname = "";
@@ -24,7 +24,7 @@ public class ContactReader {
         String state = "";
         String zip = "";
         int lineCt = 0;
-        int listCt = 0;
+        int record = 0;
         //read and output all to console
         try {
 	   in = new BufferedReader(new FileReader(data));
@@ -49,6 +49,13 @@ public class ContactReader {
                        break;
                    case 5:
                        zip = line;
+                       Contact temp = new Contact(fname, lname, street, city, state, zip);
+                       if(record < l.size()){
+                            l.set(record, temp);
+                            System.out.println(l.get(record));
+                            System.out.println(record);
+                            record++;
+                       }
                        break;
                };
                //System.out.println(line);
@@ -58,14 +65,11 @@ public class ContactReader {
                //add information to contact list
                
             }
-           for(int i = 0; i < l.size(); i++){
-                   Contact temp = l.get(i);
-                   temp = new Contact(fname, lname, street, city, state, zip);
-                   l.set(i, temp);
-           }
+           return l;
             
         } catch(IOException ioe) {
             System.out.println("Houston, we have a problem! reading this file");
+            return null;
         } finally {
             try {
                 in.close();

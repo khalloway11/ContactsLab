@@ -19,17 +19,26 @@ public class ContactsMain {
     public static void main(String[] args) {
         // TODO code application logic here
         ContactReader cr = new ContactReader();
-        List<Contact> myContacts = new ArrayList(4);
-        cr.readContacts(myContacts);
+        ArrayList<Contact> myContacts = new ArrayList(5);
+        for(int i = 0; i < 5; i++){
+            myContacts.add(i, new Contact());
+        }
+        System.out.println(myContacts.size());
+        myContacts = (ArrayList)cr.readContacts(myContacts);
         //cr.printContacts(myContacts);
         
-        Map emp = new HashMap();
+        Set emp = new HashSet();
         for(int i = 0; i < myContacts.size(); i++){
-            emp.put(i,myContacts.get(i));
+            emp.add(myContacts.get(i));
         }
         
-        Contact c = (Contact)emp.get(1);
-        System.out.println(c);
+        System.out.println(emp);
+        
+//        for(int i = 0; i < myContacts.size(); i++){
+//            Contact c = (Contact)emp.get(i);
+//            System.out.println(c);
+//        }
+        
         
     }
     
