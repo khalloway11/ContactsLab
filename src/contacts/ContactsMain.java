@@ -21,7 +21,15 @@ public class ContactsMain {
         ContactReader cr = new ContactReader();
         List<Contact> myContacts = new ArrayList(4);
         cr.readContacts(myContacts);
-        cr.printContacts(myContacts);
+        //cr.printContacts(myContacts);
+        
+        Map emp = new HashMap();
+        for(int i = 0; i < myContacts.size(); i++){
+            emp.put(i,myContacts.get(i));
+        }
+        
+        Contact c = (Contact)emp.get(1);
+        System.out.println(c);
         
     }
     
