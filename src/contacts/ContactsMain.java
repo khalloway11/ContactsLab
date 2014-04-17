@@ -32,7 +32,14 @@ public class ContactsMain {
             emp.add(myContacts.get(i));
         }
         
+        Map empMap = new HashMap();
+        for(int i = 0; i < myContacts.size(); i++){
+            String id = "" + i;
+            empMap.put(i, myContacts.get(i));
+        }
+        
         System.out.println(emp);
+        System.out.println(empMap);
         
 //        for(int i = 0; i < myContacts.size(); i++){
 //            Contact c = (Contact)emp.get(i);
